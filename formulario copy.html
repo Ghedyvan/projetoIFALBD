@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+
+<!-- 
+SITE ÓTIMO PARA BAIXAR .SVG
+https://storyset.com/illustration/studying/amico -->
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+  <script type="text/javascript" src="scripts.js"></script>
+  <title>Login | IFAL-MD</title>
+</head>
+
+<body>
+  <div class="container" style="height: 100%;">
+    <section class="section">
+      <container class="container">
+        <nav class="level">
+          <p class="level-item has-text-centered">
+            <img src="copy2_of_IFAL_Macei_horizontal (1).png" style="max-height: 200px;">
+          </p>
+        </nav>
+      </container>
+      <center>
+        <div class="title" style="padding-top: 3%; padding-bottom: 3%; color: #299626; padding-bottom: 10%;"
+          id="disciplina">Preencha o formulário</div>
+      </center>
+
+      <div class="box">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Assunto</th>
+              <th scope="col">Data</th>
+              <th scope="col">Hora</th>
+              <th scope="col">Hora</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="field">
+        <label class="label">Assunto *</label>
+        <div class="control">
+          <input class="input" type="text" name="nome" placeholder="Assunto da aula">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Dia *</label>
+        <input class="input" type="date" name="dia" placeholder="20/02/2001">
+      </div>
+      <div class="field">
+        <label class="label">Hora *</label>
+        <input class="input" type="time" name="hora" placeholder="9:20">
+      </div>
+
+      <div class="field">
+        <label class="label">Observações</label>
+        <div class="control">
+          <textarea class="textarea" name="observacao" placeholder="Essas observações serão enviadas ao monitor"></textarea>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input type="checkbox">
+            Eu declaro que irei comparecer a aula marcada neste formuário.
+          </label>
+        </div>
+      </div>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link" onclick="saveForm()">Confirmar</button>
+        </div>
+        <div class="control">
+          <button class="button is-link is-light">Cancelar</button>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <!-- <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Desenvolvido</strong> pelo setor de <a href="https://www2.ifal.edu.br/acesso-a-informacao/institucional/agenda-da-reitoria/marechal-deodoro">Tecnologia do IFAL- Campus Marechal Deodoro</a>.
+          </p>
+        </div>
+    </footer> -->
+
+</body>
+
+</html>

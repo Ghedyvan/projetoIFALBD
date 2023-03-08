@@ -125,10 +125,10 @@ https://storyset.com/illustration/studying/amico -->
 
                         </div>
                     </form>
-                    <div class="column">
+                    <div class="column is-half is-offset-one-quarter">
                         <button onclick="window.location.href='index.php'"
                             class="button is-success is-rounded is-fullwidth"
-                            style="padding-block: 0%; background-color: #9b53554b;">Voltar
+                            style="padding-block: 0%; background-color: #9b53554b; padding-top: -3%">Voltar
                     </div>
 
                 </div>

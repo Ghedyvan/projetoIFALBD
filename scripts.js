@@ -32,16 +32,20 @@ function limparMatricula(){
 }
 
 function criarConta(){
-    var nome = document.getElementById("nome").value;
-    var matricula = document.getElementById("numeroDeMatricula").value;
-    var curso = document.getElementById("curso").value;
-    var contato = document.getElementById("contato").value;
-
-    if(nome == "" || matricula == "" || curso == "" || contato == ""){
-        alert("Preencha todos os campos!");
-    }
-    else{
-        alert("Cadastro realizado com sucesso!");
-        window.location.href = "monitoria.html";
-    }
+    window.location.href = "novaconta.html";
 }
+
+// function criarConta(){
+//     var nome = document.getElementById("nome").value;
+//     var matricula = document.getElementById("numeroDeMatricula").value;
+//     var curso = document.getElementById("curso").value;
+//     var contato = document.getElementById("contato").value;
+
+//     if(nome == "" || matricula == "" || curso == "" || contato == ""){
+//         alert("Preencha todos os campos!");
+//     }
+//     else{
+//         alert("Cadastro realizado com sucesso!");
+//         window.location.href = "monitoria.html";
+//     }
+// }

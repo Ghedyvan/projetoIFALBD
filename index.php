@@ -1,14 +1,12 @@
 <?php
-include ('conexao.php');
+include('conexao.php');
 
-if(isset($_POST['matricula']) || isset($_POST['senha'])) {
-    if(strlen($_POST['matricula']) == 0){
-        echo "Preencha seu número de matrícula";
-    }
-    else if(strlen($_POST['matricula']) == 0){
-        echo "Preencha a sua senha";
-    }
-    else{
+if (isset($_POST['matricula']) || isset($_POST['senha'])) {
+    if (strlen($_POST['matricula']) == 0) {
+        echo "<script>alert('Preencha seu número de matrícula');</script>";
+    } else if (strlen($_POST['matricula']) == 0) {
+        echo "<script>alert('Preencha sua senha');</script>";
+    } else {
         $matricula = $mysqli->real_escape_string($_POST['matricula']);
         $senha = $mysqli->real_escape_string($_POST['senha']);
 
@@ -17,17 +15,16 @@ if(isset($_POST['matricula']) || isset($_POST['senha'])) {
 
         $quantidade = $sql_query->num_rows;
 
-        if($quantidade == 1){
+        if ($quantidade == 1) {
             $usuario = $sql_query->fetch_assoc();
-            if(!isset($_SESSION)){
+            if (!isset($_SESSION)) {
                 session_start();
             }
             $_SESSION['id'] = $usuario['id'];
             $_SESSION['nome'] = $usuario['nome'];
             header("Location: monitoria.php");
-        }
-        else{
-            echo "Falha no login, email e/ou senha incorretos.";
+        } else {
+            echo "<script>alert('Usuário e/ou senha incorretos');</script>";
         }
 
     }
@@ -38,7 +35,7 @@ if(isset($_POST['matricula']) || isset($_POST['senha'])) {
 
 <!DOCTYPE html>
 <html lang="pt-br">
-    
+
 
 <!-- 
 SITE ÓTIMO PARA BAIXAR .SVG
@@ -46,12 +43,11 @@ https://storyset.com/illustration/studying/amico -->
 
 
 
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="style.css" rel="stylesheet" type="text/css"/>
+    <link href="style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <script type="text/javascript" src="scripts.js"></script>
     <title>Login | IFAL-MD</title>
@@ -77,41 +73,28 @@ https://storyset.com/illustration/studying/amico -->
                     </div>
                     <div class="column is-half is-offset-one-quarter">
                         <form action="" method="POST">
-                            <input type="text" name="matricula" placeholder="Numero de matricula">
-                            <input type="password" name="senha" placeholder="Senha">
-                            <button type="submit">Entrar</button>
+                            <p class="control">
+                                <input class="input" type="text" name="matricula" placeholder="Numero de matricula">
+                            </p>
+                            <input class="input" type="password" name="senha" placeholder="Senha">
+                            <div class="columns" style="padding-top: 5%">
+                                <div class="column">
+                                    <button class="button is-success is-rounded is-fullwidth"
+                                        style="padding-block: 0%; background-color: #299626;" type="submit">Entrar
+                                    </button>
+                                </div>
+                                
+                            </div>
                         </form>
-                        <!-- <div class="field">
-                            <p class="control has-icons-left has-icons-right">
-                                <input class="input" type="text" placeholder="Usuário" id="userAdm">
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-envelope"></i>
-                                </span>
-                                <span class="icon is-small is-right">
-                                    <i class="fas fa-check"></i>
-                                </span>
-                            </p>
-                        </div>
-                        <div class="field">
-                            <p class="control has-icons-left">
-                                <input class="input" type="password" placeholder="Senha" id="senhaAdm">
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-lock"></i>
-                                </span>
-                            </p>
-                        </div> -->
                         <div class="columns">
-                            <div class="column is-half">
-                                <button class="button is-success is-rounded is-fullwidth"
-                                style="padding-block: 0%; background-color: #299626;" onclick="login()">Entrar
-                            </button>
+                                <div class="column">
+                                <a href="novaconta.php"><button class="button is-success is-rounded is-fullwidth"
+                                        style="padding-block: 0%; background-color: #299626;">Criar conta
+                                    </button></a>
+                                    
+                                </div>
+                                
                             </div>
-                            <div class="column is-half">
-                                <button class="button is-success is-rounded is-fullwidth"
-                                style="padding-block: 0%; background-color: #c8191e;" onclick="criarConta()">Criar conta
-                            </button>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -125,7 +108,7 @@ https://storyset.com/illustration/studying/amico -->
           </p>
         </div>
     </footer> -->
-    
+
 </body>
 
 </html>

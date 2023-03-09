@@ -20,7 +20,7 @@ function limparDados(){
 
 function disciplina(){
     var disciplina = "Matemática";
-    window.location.href = "formulario.html";
+    window.location.href = "formulario.php";
 }
 
 function alerta(){

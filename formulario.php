@@ -1,3 +1,40 @@
+<?php
+include('conexao.php');
+
+if (isset($_POST['assunto']) || isset($_POST['data']) || isset($_POST['horario'])) {
+    if (strlen($_POST['assunto']) == 0) {
+        echo "<script>alert('Preencha o assunto');</script>";
+    } else if (strlen($_POST['data']) == 0) {
+        echo "<script>alert('Selecione a data');</script>";
+    } else if (strlen($_POST['horario']) == "Selecione") {
+        echo "<script>alert('Selecione o horário');</script>";
+    } else {
+        echo "<script>alert('Entramo fml');</script>";
+        $assunto = $mysqli->real_escape_string($_POST['assunto']);
+        $data = $mysqli->real_escape_string($_POST['data']);
+        $horario = $mysqli->real_escape_string($_POST['horario']);
+        $observacao = $mysqli->real_escape_string($_POST['observacao']);
+        $matricula = $_SESSION['matricula'];
+        $nome = $_SESSION['nome'];
+        $whatsapp = $_SESSION['whatsapp'];
+
+        $query = "INSERT INTO monitoria (nome,whatsapp,disciplina,assunto,data,horario,observacao) VALUES ('$nome','$whatsapp',$assunto','$data','$horario','$observacao')";
+        $sql_query = $mysqli->query($query) or die("Falha na execução do código SQL: " . $mysqli->error);
+
+        if ($sql_query) {
+            echo "<script>alert('Monitoria agendada com sucesso');</script>";
+        } else {
+            echo "<script>alert('Falha ao agendar monitoria');</script>";
+        }
+    }
+}
+else{
+  echo "<script>alert('Ferrou brother');</script>";
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -66,26 +103,34 @@ https://storyset.com/illustration/studying/amico -->
           </div>
         </center>
 
-        <form>
+        <form action="" method="POST">
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Assunto</label>
-            <input type="text" class="form-control" id="assuntoMonitoria" aria-describedby="emailHelp">
+            <label for="assunto" class="form-label">Assunto</label>
+            <input type="text" class="form-control" id="assunto" aria-describedby="assunto" name="assunto" >
           </div>
           <div class="row">
             <div class="col">
-              <label for="exampleInputEmail1" class="form-label">Data</label>
-              <input type="date" class="form-control" id="assuntoMonitoria" aria-describedby="emailHelp">
+              <label for="data" class="form-label">Data</label>
+              <input type="date" class="form-control" id="data" aria-describedby="emailHelp" name="data">
             </div>
             <div class="col">
-              <label for="exampleInputEmail1" class="form-label">Hora</label>
-              <input type="time" class="form-control" id="assuntoMonitoria" aria-describedby="emailHelp">
+              <label for="horario" class="form-label">Horário</label>
+              <select class="form-select" id="horario" name="horario">
+                <option selected>Selecione</option>
+                <option value="1">08:00h - 09:10h</option>
+                <option value="2">09:10h - 10:00h</option>
+                <option value="3">10:10h - 11:20h</option>
+                <option value="4">13:30h - 14:30h</option>
+                <option value="5">14:40h - 15:40h</option>
+                <option value="6">15:50h - 16:50h</option>
+              </select>
             </div>
           </div>
 
           <div class="mb-3" style="padding-top: 3%;">
             <label for="exampleInputEmail1" class="form-label">Observações</label>
             <input type="text" class="form-control" id="assuntoMonitoria" aria-describedby="emailHelp"
-              placeholder="Campo opcional">
+              placeholder="Campo opcional" name="observacao">
           </div>
           <div class="div" style="padding-bottom: 70px;""><button type="submit" class="btn btn-primary">Confirmar</button></div>
           
